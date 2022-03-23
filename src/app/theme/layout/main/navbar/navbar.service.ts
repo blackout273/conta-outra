@@ -4,9 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class NavbarService {
-  
+  saveSearch: Array<string>=[]
+  data:Date = new Date()
  getDatas(value:any,desc:any){
-   console.log(JSON.stringify({'valor':value,'Produto':desc}))
+   desc = !desc?desc='miscellaneous':desc=desc
+   if (value>0){
+    const payload = JSON.stringify({'valor':value,'Produto':desc,'Date':this.data})
+    this.saveSearch.push(payload)
+    console.log(this.saveSearch)
+   }
+   else if (value<0){
+    const payload = JSON.stringify({'valor':value,'Produto':desc,'Date':this.data})
+    this.saveSearch.push(payload)
+    console.log(this.saveSearch)
+   }
+   
  }
 }
 

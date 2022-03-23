@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './theme/layout/main/main.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
     
+ 
    
   ],
   imports: [

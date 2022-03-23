@@ -10,30 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  mountain:number = 200
-  value:number=0
-  state:boolean=false
-  cor:boolean = true
-  description:string=' '
-  icon:string='+'
-  produto:string=''
+  mountain: number = 0
+  value: number = 0
+  state: boolean = false
+  cor: boolean = true
+  description: string = ''
+  icon: string = '+'
+  defaultValue:string = ''
 
-  hideValues(event:any){
-   event._currentIconFetch.closed
-    console.log(event)
-  }
-  
-  send(value:any,desc:any){
+  send(value: any, desc: any) {
     this.description = desc
     this.value = value
-    this.produto = this.description
-    this.state?this.mountain-=this.value:this.mountain+=Number(this.value)
-    this.navbarService.getDatas(this.value,this.description)
-  }
-  toggleChanges(event: MatSlideToggleChange){
-    this.state = event.checked
-    this.state?this.icon='-':this.icon='+'
+    this.state ? this.mountain -= this.value : this.mountain += Number(this.value)
+    this.navbarService.getDatas(this.value, this.description)
     
+  }
+  toggleChanges(event: MatSlideToggleChange) {
+    this.state = event.checked
+    this.state ? this.icon = '-' : this.icon = '+'
+
   }
   constructor(private navbarService: NavbarService) { }
 
