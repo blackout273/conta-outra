@@ -4,18 +4,18 @@
     </div>
 </nav>
 
-<div class="card all" style="width: 18rem;">
+<div class="card  mx-auto text-center" style="width: 36rem;">
     <div class="card-body all">
         <mat-icon #componentInput3> wb_sunny</mat-icon>
 
         <div class="row" *ngIf="cor == true">
             <p class="display-1 ">R$ {{mountain}}</p>
-            <p class="display-4 ">{{icon}} {{value}}</p>
+            <p class="display-4 ">{{icon}} {{refreshed}}</p>
             <p>Produto: {{description}}</p>
         </div>
         <div class="row ">
             <mat-slide-toggle class="col-2 " (change)="toggleChanges($event)"></mat-slide-toggle>
-            <input class="all col-7" placeholder="R$" type="number" #componentInput />
+            <input class="all col-7" placeholder="R$" (keyup)="KeyDown($event)" type="number" #componentInput />
             <button (click)="send(componentInput.value, componentInput2.value)" type="submit"
                 class="btn btn-primary all col-2">Go</button>
         </div>

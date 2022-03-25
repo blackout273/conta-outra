@@ -17,9 +17,14 @@ export class NavbarComponent implements OnInit {
   description: string = '...'
   icon: string = '+'
   defaultValue:string = ''
+  refreshed:string='0'
+
+  KeyDown(event:KeyboardEvent){
+    this.refreshed= (<HTMLInputElement>event.target).value
+  }
  
   send(value: any, desc: any) {
-    this.description = desc
+    this.description = !desc && value?desc='miscellaneous':desc=desc
     this.value = value>0 || value<0? value : 0
     this.state ? this.mountain -= this.value : this.mountain += Number(this.value)
     this.navbarService.getDatas(this.icon,this.value, this.description,this.mountain)
