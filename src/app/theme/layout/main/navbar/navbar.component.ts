@@ -14,22 +14,22 @@ export class NavbarComponent implements OnInit {
   value: number = 0
   state: boolean = false
   cor: boolean = true
-  description: string = ''
+  description: string = '...'
   icon: string = '+'
   defaultValue:string = ''
-
+ 
   send(value: any, desc: any) {
     this.description = desc
-    this.value = value
+    this.value = value>0 || value<0? value : 0
     this.state ? this.mountain -= this.value : this.mountain += Number(this.value)
-    this.navbarService.getDatas(this.value, this.description)
+    this.navbarService.getDatas(this.icon,this.value, this.description,this.mountain)
     
   }
   toggleChanges(event: MatSlideToggleChange) {
     this.state = event.checked
     this.state ? this.icon = '-' : this.icon = '+'
-
   }
+  
   constructor(private navbarService: NavbarService) { }
 
   ngOnInit(): void {

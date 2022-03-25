@@ -1,27 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container-fluid">
-        <a class="navbar-brand  ">shrimps</a>
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto ">
-                <li class="nav-item">
-                    <a class="nav-link ">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/file'">File</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Setup</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">Dev</a>
-                </li>
-
-            </ul>
-        </div> -->
+        <a class="navbar-brand  ">shrimps</a> 
     </div>
 </nav>
 
@@ -30,29 +9,27 @@
         <mat-icon #componentInput3> wb_sunny</mat-icon>
 
         <div class="row" *ngIf="cor == true">
-            <p class="display-1 ">{{mountain}}</p>
+            <p class="display-1 ">R$ {{mountain}}</p>
             <p class="display-4 ">{{icon}} {{value}}</p>
             <p>Produto: {{description}}</p>
         </div>
         <div class="row ">
             <mat-slide-toggle class="col-2 " (change)="toggleChanges($event)"></mat-slide-toggle>
-            <input class="all col-7" type="number" #componentInput />
+            <input class="all col-7" placeholder="R$" type="number" #componentInput />
             <button (click)="send(componentInput.value, componentInput2.value)" type="submit"
                 class="btn btn-primary all col-2">Go</button>
         </div>
 
         <div class="row col-12">
-            <!-- DROPDOWN-->
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false"> + </a>
             <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                <p class="dropdown-item">Item Name: </p>
-                <li><textarea  class="textField col-12" name="description" cols="30" rows="1"
+                <p class="dropdown-header">Item Name: </p>
+                <div class="dropdown-divider"></div>
+                <li><textarea placeholder="name"  class="textField col-12" name="description" cols="30" rows="1"
                         #componentInput2></textarea></li>
-
             </ul>
-            <!-- DROPDOWN-->
         </div>
-
     </div>
 </div>
+
