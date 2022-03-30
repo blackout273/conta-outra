@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,7 @@ export class NavbarService {
   
   
  getDatas(icone:string,value:any,desc:any,mountain:any){
-   const data = new Date()
-   const zone = 3*60
-   data.setMinutes(data.getMinutes()*zone)
-   desc = !desc?desc='miscellaneous':desc=desc //Esta Linha pode ser apagada
-   const payload = JSON.stringify({valor:`${icone} R$${value}`,Produto:desc,Montante:`R$${mountain}`,Date:data})
+   const payload = JSON.stringify({valor:`${icone} R$${value}`,Produto:desc,Montante:`R$${mountain}`})
    if (value>0 || value<0){
     
     this.saveSearch.push(payload);
@@ -25,11 +22,20 @@ export class NavbarService {
         }
       })
       .then(rcv => rcv.json())
-      .then(result => console.log(result))
+      // .then(result => {return result})
     })()
+    
    }
-   
-   
+  
  }
-}
+ comeback(){
+   const data = async ()=>{
+    return await fetch('http://127.0.0.1:8002/test')
+    .then(rcv => rcv.json())
+    .then((result) =>{return result} )
+  }
+  return data()
+ }
 
+
+}

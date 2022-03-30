@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   icon: string = '+'
   defaultValue:string = ''
   refreshed:string='0'
+  conteudo:any
 
   KeyDown(event:KeyboardEvent){
     this.refreshed= (<HTMLInputElement>event.target).value
@@ -28,7 +29,8 @@ export class NavbarComponent implements OnInit {
     this.value = value>0 || value<0? value : 0
     this.state ? this.mountain -= this.value : this.mountain += Number(this.value)
     this.navbarService.getDatas(this.icon,this.value, this.description,this.mountain)
-    
+    this.navbarService.comeback().then(x=>{this.conteudo = JSON.stringify(x)})
+   
   }
   toggleChanges(event: MatSlideToggleChange) {
     this.state = event.checked
